@@ -6,42 +6,58 @@ import requests
 DATA_FILE = 'gold_price_trend.json'
 
 def get_today_gold_price():
-    # 1. 从 GitHub Secrets 中安全读取 API Key
+    # 1. 从 GitHub Secrets 获取 API Key
     api_key = os.environ.get("GOLD_API_KEY")
     if not api_key:
         print("❌ 未找到 GOLD_API_KEY，请检查 GitHub Secrets 配置。")
         return None
 
-    # 2. 配置真实 API 地址
-    # ⚠️ 注意：这里以“极速数据”的品牌黄金接口为例。
-    # 如果你用的是聚合数据或其他平台，请根据官方文档替换 URL 和解析逻辑！
-    url = f"http://web.juhe.cn/finance/gold/shgold?key={api_key}"
+    # 2. 聚合数据 - 上海黄金交易所接口
+    url = 'http://web.juhe.cn/finance/gold/shgold'
+    params = {
+        'key': api_key,
+        'v': '1'  # 保持官方参数格式
+    }
 
     try:
-        print("正在请求真实黄金 API...")
-        response = requests.get(url, timeout=10)
+        print("正在请求聚合数据 (上海黄金交易所) API...")
+        response = requests.get(url, params=params, timeout=10)
         data = response.json()
+        
+        # 将接口返回的原始数据完整打印出来，方便在 GitHub Actions 日志中排查问题
+        print("API 原始返回数据:", json.dumps(data, ensure_ascii=False))
 
-        # 3. 解析 JSON 数据 (以下逻辑需根据你实际使用的 API 文档调整)
-        if data.get("status") == 0 or data.get("msg") == "ok":
-            brand_list = data.get("result", [])
+        # 3. 聚合数据的成功状态码是 error_code == 0
+        if str(data.get("error_code")) == "0":
+            # 获取结果列表
+            results = data.get("result", [])
             
-            # 遍历寻找你需要的品牌，比如“周大福”
-            for item in brand_list:
-                if item.get("brand") == "周大福":
-                    # 获取最新报价（通常是个字符串，需要转成浮点数）
-                    price_str = item.get("price")
-                    print(f"✅ 成功获取周大福金价: {price_str} 元/克")
-                    return float(price_str)
+            # 聚合数据的结构有时嵌套在一层列表中，有时嵌套在字典中
+            # 我们直接提取 "Au99.99" (纯度 99.99% 的黄金) 的最新报价
+            if isinstance(results, list) and len(results) > 0:
+                first_item = results[0]
+                
+                # 遍历寻找 Au99.99
+                items_to_search = first_item.values() if isinstance(first_item, dict) else results
+                
+                for item in items_to_search:
+                    if isinstance(item, dict):
+                        # 获取品种名称
+                        variety = item.get("variety", "")
+                        if variety == "Au99.99" or "Au99.99" in variety:
+                            # 获取最新价
+                            latest_price = item.get("latestpri")
+                            print(f"✅ 成功获取 {variety} 最新大盘金价: {latest_price} 元/克")
+                            return float(latest_price)
             
-            print("❌ 在返回数据中没有找到指定的品牌。")
+            print("❌ 没有在返回数据中找到 Au99.99 的价格，请检查上方打印的原始数据格式。")
             return None
         else:
-            print(f"❌ API 请求失败，服务商返回: {data.get('msg')}")
+            print(f"❌ API 请求失败，错误码: {data.get('error_code')}，原因: {data.get('reason')}")
             return None
 
     except Exception as e:
-        print(f"❌ 网络请求异常: {e}")
+        print(f"❌ 网络请求或解析异常: {e}")
         return None
 
 def main():
@@ -52,7 +68,7 @@ def main():
         print("获取金价失败，今日数据不更新。")
         return
 
-    # 读取已有的历史数据
+    # 读取已有数据
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
             try:
@@ -79,7 +95,7 @@ def main():
     # 写回 JSON 文件
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(trend_data, f, ensure_ascii=False, indent=2)
-    print("✅ 真实数据保存成功！")
+    print("✅ 真实大盘金价数据保存成功！")
 
 if __name__ == "__main__":
     main()

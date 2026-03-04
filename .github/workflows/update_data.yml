@@ -2,8 +2,7 @@ name: Update Gold Price Daily
 
 on:
   schedule:
-    # 使用 Cron 表达式，这里设置为每天 UTC 时间 00:00 执行（北京时间早上 8:00）
-    - cron: '0 0 * * *'
+    - cron: '23 0 * * *'
   # 允许手动在网页上点击运行，方便我们测试
   workflow_dispatch: 
 

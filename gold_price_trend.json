@@ -31311,5 +31311,186 @@
         "time": "2026-08-22 09:54:43"
       }
     }
+  },
+  {
+    "date": "2026-08-23",
+    "data": {
+      "Au100g": {
+        "variety": "Au100g",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "NaN%",
+        "yespri": "987.11",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Au(T+N1)": {
+        "variety": "Au(T+N1)",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "1096.70",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Au(T+D)": {
+        "variety": "Au(T+D)",
+        "latestpri": "996.50",
+        "openpri": "991.80",
+        "maxpri": "996.50",
+        "minpri": "985.50",
+        "limit": "1.27%",
+        "yespri": "984.45",
+        "totalvol": "13198.00",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Au99.99": {
+        "variety": "Au99.99",
+        "latestpri": "996.00",
+        "openpri": "990.00",
+        "maxpri": "996.00",
+        "minpri": "985.00",
+        "limit": "1.19%",
+        "yespri": "983.56",
+        "totalvol": "6482.00",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Au99.95": {
+        "variety": "Au99.95",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "986.85",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Au50g": {
+        "variety": "Au50g",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "NaN%",
+        "yespri": "--",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Ag99.99": {
+        "variety": "Ag99.99",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "16850.00",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Ag(T+D)": {
+        "variety": "Ag(T+D)",
+        "latestpri": "16890.00",
+        "openpri": "16940.00",
+        "maxpri": "16974.00",
+        "minpri": "16753.00",
+        "limit": "0.96%",
+        "yespri": "16730.00",
+        "totalvol": "59002.00",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Au(T+N2)": {
+        "variety": "Au(T+N2)",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "1050.00",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "Pt99.95": {
+        "variety": "Pt99.95",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "448.72",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "AU995": {
+        "variety": "AU995",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "370.50",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "AU99.99": {
+        "variety": "AU99.99",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "NaN%",
+        "yespri": "--",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "MAUTD": {
+        "variety": "MAUTD",
+        "latestpri": "996.82",
+        "openpri": "992.00",
+        "maxpri": "996.82",
+        "minpri": "985.01",
+        "limit": "1.25%",
+        "yespri": "984.50",
+        "totalvol": "4526.00",
+        "time": "2026-08-23 10:06:26"
+      },
+      "IAU99.99": {
+        "variety": "IAU99.99",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "982.37",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "IAU100G": {
+        "variety": "IAU100G",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "343.55",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      },
+      "IAU99.5": {
+        "variety": "IAU99.5",
+        "latestpri": "--",
+        "openpri": "--",
+        "maxpri": "--",
+        "minpri": "--",
+        "limit": "--",
+        "yespri": "983.98",
+        "totalvol": "--",
+        "time": "2026-08-23 10:06:26"
+      }
+    }
   }
 ]
